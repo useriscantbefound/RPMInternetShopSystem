@@ -1,0 +1,55 @@
+﻿<Window x:Class="internetShopProject.Products"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="Products" Height="450" Width="800" ResizeMode="CanMinimize">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#5d1d99">
+            <TextBlock Style="{StaticResource productTextBlock}" Text="Products"/>
+
+            <Button Name="addProductButton" Style="{StaticResource productButton}" Content="Add Product" Click="addPrdClicked"/>
+            <Button Name="removeProductButton" Style="{StaticResource productButton}" Content="Remove Product" Click="removePrdClicked"/>
+            <Button Name="changeProductButton" Style="{StaticResource productButton}" Content="Change Product" Click="changePrdClicked"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Background="#461673">
+            <ListBox Name="listViewForProducts" ItemsSource="{Binding productsCollection}" Width="800" Background="Transparent" BorderThickness="0" PreviewMouseDoubleClick="productDoubleClicked">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Name="productNameTextBlock" Foreground="White" FontSize="16">
+                                <Run Text="Product: "/>
+                                <Run Text="{Binding product_Name}"/>
+                            </TextBlock>
+
+                            <TextBlock Name="productDescTextBlock" Foreground="White" FontSize="16">
+                                <Run Text="Description: "/>
+                                <Run Text="{Binding product_Description}"/>
+                            </TextBlock>
+
+                            <TextBlock Name="productCountTextBlock" Foreground="White" FontSize="16">
+                                <Run Text="Count: "/>
+                                <Run Text="{Binding product_Count}"/>
+                            </TextBlock>
+                            
+                            <TextBlock Name="productPriceTextBlock" Foreground="White" FontSize="16">
+                                <Run Text="Price: "/>
+                                <Run Text="{Binding product_Price}"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Background="#5d1d99">
+            <Button Style="{StaticResource refreshProductButton}" HorizontalAlignment="Right" Content="Refresh" Click="refreshProductClicked"/>
+        </StackPanel>
+    </Grid>
+</Window>

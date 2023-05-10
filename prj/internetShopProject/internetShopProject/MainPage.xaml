@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="internetShopProject.MainPage" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        Title="Main Page" Height="450" Width="800" ResizeMode="CanMinimize">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#5d1d99">
+            <TextBlock FontFamily="Montserrat" FontSize="25" Foreground="White" Margin="20, 13, 0, 10" Text="Main Page"/>
+            <Button Style="{StaticResource mainCreateAccBtn}" Content="Registration" Click="createAccClicked"/>
+            <Button Style="{StaticResource mainCreateAccBtn}" Content="Authorization" Click="authorizeIntoAccClicked"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Background="#461673">
+            <Label FontFamily="Montserrat" Grid.Row="1" FontSize="25" Foreground="White" Margin="15, 15, 0, 0" VerticalAlignment="Top" Height="50"  Content="Welcome to the internet shop system!"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Background="#5d1d99">
+            <Button Name="cartBtnOnMain" Style="{StaticResource mainCartBtn}" Content="Shopping Cart" Click="cartBtnClicked"/>
+            <Button Name="prdBtnOnMain" Style="{StaticResource mainProductsBtn}" Content="Products" Click="productsBtnClicked"/>
+        </StackPanel>
+    </Grid>
+</Window>

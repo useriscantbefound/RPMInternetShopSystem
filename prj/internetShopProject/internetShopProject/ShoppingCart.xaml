@@ -1,0 +1,55 @@
+﻿<Window x:Class="internetShopProject.ShoppingCart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:internetShopProject"
+        mc:Ignorable="d"
+        Title="Shopping Cart" Height="450" Width="500" ResizeMode="CanMinimize" Loaded="shoppingCartWindowLoaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#5d1d99">
+            <TextBlock Style="{StaticResource shoppingCartTextBlock}" Text="Shopping Cart"/>
+            
+            <Button Style="{StaticResource shoppingCartButton}" Content="Order" Click="orderButtonClicked"/>
+            <Button Style="{StaticResource shoppingCartButton}" Content="Clear" Click="clearButtonClicked"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Background="#461673">
+            <ListBox Name="cartListViewForProducts" ItemsSource="{Binding cartProductCollection}" Width="500" Background="Transparent" BorderThickness="0" PreviewMouseDoubleClick="cartDoubleClicked">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Name="cartProductNameTextBlock" Foreground="White" FontSize="16">
+                                <Run Text="Product: "/>
+                                <Run Text="{Binding product_Name}"/>
+                            </TextBlock>
+
+                            <TextBlock Name="cartProductDescTextBlock" Foreground="White" FontSize="16">
+                                <Run Text="Description: "/>
+                                <Run Text="{Binding product_Description}"/>
+                            </TextBlock>
+
+                            <TextBlock Name="cartProductCountTextBlock" Foreground="White" FontSize="16">
+                                <Run Text="Count: "/>
+                                <Run Text="{Binding product_Count}"/>
+                            </TextBlock>
+                            
+                            <TextBlock Name="cartProductPriceTextBlock" Foreground="White" FontSize="16">
+                                <Run Text="Price: "/>
+                                <Run Text="{Binding product_Price}"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Background="#5d1d99"/>
+    </Grid>
+</Window>

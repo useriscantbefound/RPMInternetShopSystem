@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище internetShop_DBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="products">
+    <Key>
+      <PropertyRef Name="product_Id" />
+    </Key>
+    <Property Name="product_Id" Type="int" Nullable="false" />
+    <Property Name="product_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="product_Count" Type="int" />
+    <Property Name="product_Description" Type="text" />
+    <Property Name="product_HoursUntilExpire" Type="int" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="role_Id" />
+    </Key>
+    <Property Name="role_Id" Type="int" Nullable="false" />
+    <Property Name="role_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="user_Id" />
+    </Key>
+    <Property Name="user_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_Id" Type="int" Nullable="false" />
+    <Property Name="user_Nickname" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_Image" Type="binary" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_users_roles">
+    <End Role="roles" Type="Self.roles" Multiplicity="1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="role_Id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище internetShop_DBModelContainer">
+    <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_users_roles" Association="Self.FK_users_roles">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,295 @@
+﻿<Application x:Class="internetShopProgram.App"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	StartupUri="MainPage.xaml">
+	
+	<Application.Resources>
+        <Style x:Key="middlePanel" TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Background" Value="#461673"/>
+        </Style>
+
+        <Style x:Key="createAccBtn" TargetType="Button">
+			<Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="BlueViolet"/>
+            <Setter Property="FontSize" Value="14"/>
+			<Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+			<Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="150"/>
+			<Setter Property="Margin" Value="50, 0, 50, 15"/>
+		</Style>
+	
+		<Style x:Key="textForLoginBox" TargetType="TextBlock">
+			
+            <Setter Property="FontSize" Value="16"/>
+			<Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="50"/>
+			<Setter Property="Margin" Value="10, 27, 0, 256"/>
+		</Style>
+		
+		<Style x:Key="textForPasswordBox" TargetType="TextBlock">
+			
+            <Setter Property="FontSize" Value="16"/>
+			<Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="Height" Value="24"/>
+            <Setter Property="Width" Value="82"/>
+			<Setter Property="Margin" Value="15, 90, 0, 194"/>
+		</Style>
+	
+		<Style x:Key="textForRepeatPasswordBox" TargetType="TextBlock">
+			
+            <Setter Property="FontSize" Value="16"/>
+			<Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Width" Value="147"/>
+			<Setter Property="Margin" Value="35, 150, 0, 134"/>
+		</Style>
+		
+		<Style x:Key="loginBox" TargetType="TextBox">
+			<Setter Property="Background" Value="BlueViolet"/>
+			
+			<Setter Property="BorderThickness" Value="2"/>
+			<Setter Property="BorderBrush" Value="#5d1d99"/>
+            <Setter Property="FontSize" Value="18"/>
+			<Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="150"/>
+			<Setter Property="Margin" Value="10, 0, 0, 175"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+		</Style>
+		
+		<Style x:Key="passwordStyleBox" TargetType="PasswordBox">
+			<Setter Property="Background" Value="BlueViolet"/>
+			
+			<Setter Property="BorderThickness" Value="2"/>
+			<Setter Property="BorderBrush" Value="#5d1d99"/>
+            <Setter Property="FontSize" Value="18"/>
+			<Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="150"/>
+			<Setter Property="Margin" Value="10, 0, 0, 50"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+		</Style>
+	
+		<Style x:Key="repeatPasswordStyleBox" TargetType="PasswordBox">
+			<Setter Property="Background" Value="BlueViolet"/>
+			
+			<Setter Property="BorderThickness" Value="2"/>
+			<Setter Property="BorderBrush" Value="#5d1d99"/>
+            <Setter Property="FontSize" Value="18"/>
+			<Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="150"/>
+			<Setter Property="Margin" Value="10, 0, 0, -70"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+		</Style>
+		
+		<Style x:Key="productTextBlock" TargetType="TextBlock">
+			<Setter Property="Foreground" Value="White"/>
+			
+            <Setter Property="FontSize" Value="25"/>
+			<Setter Property="Margin" Value="20, 13, 0, 10"/>
+		</Style>
+
+        <Style x:Key="shoppingCartTextBlock" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Margin" Value="20, 13, 0, 10"/>
+        </Style>
+
+        <Style x:Key="productButton" TargetType="Button">
+			<Setter Property="Background" Value="BlueViolet"/>
+			
+			<Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+			<Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="150"/>
+			<Setter Property="Height" Value="40"/>
+			<Setter Property="Margin" Value="25, 10, 10, 10"/>
+		</Style>
+
+        <Style x:Key="refreshProductButton" TargetType="Button">
+            <Setter Property="Background" Value="BlueViolet"/>
+            
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="25, 10, 15, 10"/>
+        </Style>
+
+        <Style x:Key="shoppingCartButton" TargetType="Button">
+            <Setter Property="Background" Value="BlueViolet"/>
+            
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="25, 10, 10, 10"/>
+        </Style>
+
+        <Style x:Key="mainCreateAccBtn" TargetType="Button">
+            <Setter Property="Background" Value="BlueViolet"/>
+            
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="25, 10, 10, 10"/>
+        </Style>
+
+        <Style x:Key="mainCartBtn" TargetType="Button">
+            <Setter Property="Background" Value="BlueViolet"/>
+            
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Margin" Value="10, 10, 0, 10"/>
+        </Style>
+
+        <Style x:Key="mainProductsBtn" TargetType="Button">
+			<Setter Property="Background" Value="BlueViolet"/>
+			
+			<Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+			<Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+			<Setter Property="Height" Value="30"/>
+			<Setter Property="Width" Value="150"/>
+			<Setter Property="Margin" Value="0, -50, 10, 0"/>
+		</Style>
+
+        <Style x:Key="refreshDataBtn" TargetType="Button">
+            <Setter Property="Background" Value="BlueViolet"/>
+            
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="85"/>
+            <Setter Property="Margin" Value="0, -30, 180, 0"/>
+        </Style>
+
+        <Style x:Key="signOutBtn" TargetType="Button">
+            <Setter Property="Background" Value="BlueViolet"/>
+            
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Margin" Value="0, -40, 15, 0"/>
+        </Style>
+
+        <Style x:Key="authorizeBtn" TargetType="Button">
+			<Setter Property="Background" Value="BlueViolet"/>
+			
+			<Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="14"/>
+			<Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+			<Setter Property="Height" Value="40"/>
+			<Setter Property="Width" Value="150"/>
+			<Setter Property="Margin" Value="50, 0, 50, 15"/>
+		</Style>
+	
+		<Style x:Key="textForLoginBox2" TargetType="TextBlock">
+			
+            <Setter Property="FontSize" Value="16"/>
+			<Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+		
+		<Style x:Key="textForPasswordBox2" TargetType="TextBlock">
+			
+            <Setter Property="FontSize" Value="16"/>
+			<Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+	
+		<Style x:Key="loginBox2" TargetType="TextBox">
+			<Setter Property="Background" Value="BlueViolet"/>
+			
+            <Setter Property="FontSize" Value="18"/>
+			<Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="150"/>
+			<Setter Property="Height" Value="30"/>
+			<Setter Property="BorderThickness" Value="2"/>
+			<Setter Property="BorderBrush" Value="#5d1d99"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Margin" Value="10, 0, 0, 175"/>
+		</Style>
+	
+		<Style x:Key="passwordBox2" TargetType="PasswordBox">
+			<Setter Property="Background" Value="BlueViolet"/>
+			
+            <Setter Property="FontSize" Value="18"/>
+			<Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="150"/>
+			<Setter Property="Height" Value="30"/>
+			<Setter Property="BorderThickness" Value="2"/>
+			<Setter Property="BorderBrush" Value="#5d1d99"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Margin" Value="10, 0, 0, 50"/>
+		</Style>
+
+        <Style x:Key="profileTextBlock" TargetType="TextBlock">
+            
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="15, 15, 0, 0"/>
+        </Style>
+
+        <Style x:Key="bottomBtnOnProfile" TargetType="Button">
+            <Setter Property="Background" Value="BlueViolet"/>
+            
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Margin" Value="20, 2, 0, 0"/>
+        </Style>
+
+        <Style x:Key="nicknameTextBlockInProfile" TargetType="TextBlock">
+            
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="15, 10, 0, 120"/>
+        </Style>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="internetShop_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="product_Id" />
+    </Key>
+    <Property Name="product_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="product_Count" Type="Int32" />
+    <Property Name="product_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="product_Price" Type="Int32" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="role_Id" />
+    </Key>
+    <Property Name="role_Id" Type="Int32" Nullable="false" />
+    <Property Name="role_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="users" Relationship="Self.FK_users_roles" FromRole="roles" ToRole="users" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user_Id" />
+    </Key>
+    <Property Name="user_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role_Id" Type="Int32" Nullable="false" />
+    <Property Name="user_Nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="role" Relationship="Self.FK_users_roles" FromRole="users" ToRole="roles" />
+  </EntityType>
+  <Association Name="FK_users_roles">
+    <End Role="roles" Type="Self.role" Multiplicity="1" />
+    <End Role="users" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="role_Id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="internetShop_DBEntities6" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="products" EntityType="Self.product" />
+    <EntitySet Name="roles" EntityType="Self.role" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK_users_roles" Association="Self.FK_users_roles">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
